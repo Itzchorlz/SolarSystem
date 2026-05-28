@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>System Login</title>
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000000;
+    font-family: 'Segoe UI', sans-serif;
+    }
+
+    .login-box {
+    background-color: #0f172a;
+    padding: 40px;
+    border-radius: 16px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
+    border: 1px solid #1e293b;
+    color: #f8fafc;
+    }
+
+    .login-box h2 { margin: 0 0 8px 0; font-size: 24px; }
+    .hint { color: #64748b; font-size: 13px; margin-bottom: 25px; }
+
+    input {
+    width: 100%;
+    padding: 12px 16px;
+    margin: 8px 0;
+    border-radius: 8px;
+    border: 1px solid #334155;
+    background-color: #020617;
+    color: white;
+    font-size: 14px;
+    box-sizing: border-box;
+    }
+    input:focus { outline: none; border-color: #3b82f6; }
+
+    button {
+    width: 100%;
+    padding: 12px;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 15px;
+    margin-top: 15px;
+    }
+    button:hover { background-color: #2563eb; }
+    .error { color: #ef4444; font-size: 13px; margin-top: 10px; display: none; }
+</style>
+</head>
+<body>
+
+<div class="login-box">
+    <h2>System Gateway</h2>
+    <p class="hint">Credentials: <b>chorlzpogi</b> / <b>1234</b></p>
+    
+    <form onsubmit="verifyGateway(event)">
+    <input type="text" id="username" placeholder="Username" required autocomplete="off">
+    <input type="password" id="password" placeholder="Password" required>
+    <p id="errorlogin" class="error">Invalid Access Credentials</p>
+    <button type="submit">Authenticate</button>
+    </form>
+</div>
+
+<script>
+    function verifyGateway(event) {
+    event.preventDefault();
+
+    const user = document.getElementById('username').value.trim();
+    const pass = document.getElementById('password').value;
+
+    if (user === 'chorlz' && pass === '1234') {
+    window.location.href = "SOLARSYSTEM.html";
+    } else {
+    document.getElementById('errorlogin').style.display = 'block';
+    }
+    }
+</script>
+
+</body>
+</html>
